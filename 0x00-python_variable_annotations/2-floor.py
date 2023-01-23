@@ -2,6 +2,6 @@
 """ Using annotations """
 
 
-def floor(n: float) -> float:
+def floor(n: float) -> int:
     """Returns floor of n"""
-    return float(int(n))
+    return int(n)
