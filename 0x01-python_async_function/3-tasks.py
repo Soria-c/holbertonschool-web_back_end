@@ -2,8 +2,7 @@
 """async python"""
 
 import asyncio
-from typing import List, Awaitable
-import time
+from typing import Awaitable
 
 
 wait_random = __import__('0-basic_async_syntax').wait_random
