@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """Caching in python"""
-from dis import dis
 import base_caching
 import collections
 
