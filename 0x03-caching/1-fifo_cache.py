@@ -16,7 +16,7 @@ class FIFOCache(base_caching.BaseCaching):
         if key and item:
             self.cache_data.update({key: item})
             self.key_queue.append(key)
-            if len(self.cache_data) > 4:
+            if len(self.cache_data) > super.MAX_ITEMS:
                 discard = self.key_queue.popleft()
                 self.cache_data.pop(discard)
                 print(f"DISCARD {discard}")
