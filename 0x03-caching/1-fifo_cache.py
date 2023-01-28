@@ -19,7 +19,7 @@ class FIFOCache(base_caching.BaseCaching):
             if len(self.cache_data) > super().MAX_ITEMS:
                 discard = self.key_queue.popleft()
                 self.cache_data.pop(discard)
-                print(f"DISCARD {discard}")
+                print(f"DISCARD: {discard}")
 
     def get(self, key):
         """Retrieves from the cache"""
