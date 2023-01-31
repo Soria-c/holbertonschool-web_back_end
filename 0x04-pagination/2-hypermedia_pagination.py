@@ -48,6 +48,6 @@ class Server:
             "page": page,
             "data": data,
             "next_page": page + 1 if data else None,
-            "prev_page": page - 1,
+            "prev_page": page - 1 if page > 1 else None,
             "total_pages": math.ceil(len(self.__dataset) / page_size)
         }
