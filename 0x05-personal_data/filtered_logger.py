@@ -9,6 +9,5 @@ def filter_datum(fields: List[str], redaction: str,
     """Returns message string with the required fields obfuscated"""
     os = message
     for i in fields:
-        os = re.sub(re.search(rf"{i}=(.+?)(?={separator})", os)
-                    .group(1), redaction, os, 1)
+        os = re.sub(rf"{i}=(.+?)(?={separator})", f"{i}={redaction}", os)
     return os
