@@ -4,8 +4,13 @@ from typing import List, Tuple
 import re
 import logging
 
-PII_FIELDS: Tuple[str, str, str, str, str] =\
-          ("Phone", "Email", "Ip", "Password", "Ssn")
+PII_FIELDS: Tuple[str, str, str, str, str] = (
+    "name",
+    "email",
+    "phone",
+    "ssn",
+    "password"
+)
 
 
 def filter_datum(fields: List[str], redaction: str,
