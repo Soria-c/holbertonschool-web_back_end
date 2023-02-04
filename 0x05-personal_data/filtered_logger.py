@@ -70,25 +70,17 @@ def main() -> None:
     cursor = db.cursor(dictionary=True)
     logger = get_logger()
 
-    fields_to_filter = ["name",
-                        "email",
-                        "phone",
-                        "ssn",
-                        "password"]
+    fields = ["name", "email", "phone", "ssn",
+              "password", "ip", "last_login", "user_agent"]
 
     query = """SELECT name, email, phone, ssn, password,
                ip, last_login, user_agent FROM users"""
     cursor.execute(query)
     for i in cursor.fetchall():
-        logger.info(
-            f"name={i['name']};\
- email={i['email']};\
- phone={i['phone']};\
- ssn={i['ssn']};\
- password={i['password']};\
- ip={i['ip']};\
- last_login={i['last_login']};\
- user_agent={i['user_agent']};")
+        log = ""
+        for j in fields:
+            log += f"{j}={i[j]}; "
+        logger.info(log)
     cursor.close()
     db.close()
 
