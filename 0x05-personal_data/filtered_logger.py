@@ -3,6 +3,15 @@
 from typing import List, Tuple
 import re
 import logging
+from os import getenv
+import mysql.connector as db
+
+mysql_config = {
+    "username": getenv("PERSONAL_DATA_DB_USERNAME") or "root",
+    "password": getenv("PERSONAL_DATA_DB_PASSWORD") or "",
+    "host": getenv("PERSONAL_DATA_DB_HOST") or "localhost",
+    "database": getenv("PERSONAL_DATA_DB_NAME")
+}
 
 PII_FIELDS: Tuple[str, str, str, str, str] = (
     "name",
@@ -11,6 +20,10 @@ PII_FIELDS: Tuple[str, str, str, str, str] = (
     "ssn",
     "password"
 )
+
+
+def get_db() -> db.connection.MySQLConnection:
+    return db.connect(**mysql_config)
 
 
 def filter_datum(fields: List[str], redaction: str,
