@@ -23,6 +23,7 @@ PII_FIELDS: Tuple[str, str, str, str, str] = (
 
 
 def get_db() -> db.connection.MySQLConnection:
+    """Return a Mysql connection"""
     return db.connect(**mysql_config)
 
 
