@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 """obfuscator"""
-from cgitb import handler
-from typing import List
+from typing import List, Tuple
 import re
 import logging
 
-PII_FIELDS = ("Phone", "Email", "Ip", "Password", "Ssn")
+PII_FIELDS: Tuple[str, str, str, str, str] = ("Phone", "Email", "Ip", "Password", "Ssn")
 
 
 def filter_datum(fields: List[str], redaction: str,
@@ -18,12 +17,12 @@ def filter_datum(fields: List[str], redaction: str,
 
 
 def get_logger() -> logging.Logger:
-    logger = logging.getLogger("user_data")
+    logger: logging.Logger = logging.getLogger("user_data")
     logger.setLevel(logging.INFO)
     logger.propagate = False
-    handler = logging.StreamHandler()
+    handler: logging.StreamHandler = logging.StreamHandler()
     handler.setFormatter(RedactingFormatter(PII_FIELDS))
-    logger.addHandler(logging.StreamHandler())
+    logger.addHandler(handler)
     return logger
 
 
