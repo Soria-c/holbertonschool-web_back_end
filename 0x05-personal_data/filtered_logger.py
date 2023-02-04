@@ -63,3 +63,35 @@ class RedactingFormatter(logging.Formatter):
         """returns formated string"""
         return filter_datum(self.fields, self.REDACTION,
                             super().format(record), self.SEPARATOR)
+
+
+def main() -> None:
+    db = get_db()
+    cursor = db.cursor(dictionary=True)
+    logger = get_logger()
+
+    fields_to_filter = ["name",
+                        "email",
+                        "phone",
+                        "ssn",
+                        "password"]
+
+    query = """SELECT name, email, phone, ssn, password,
+               ip, last_login, user_agent FROM users"""
+    cursor.execute(query)
+    for i in cursor.fetchall():
+        logger.info(
+            f"name={i['name']};\
+ email={i['email']};\
+ phone={i['phone']};\
+ ssn={i['ssn']};\
+ password={i['password']};\
+ ip={i['ip']};\
+ last_login={i['last_login']};\
+ user_agent={i['user_agent']};")
+    cursor.close()
+    db.close()
+
+
+if __name__ == "__main__":
+    main()
