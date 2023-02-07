@@ -27,6 +27,7 @@ if (auth_type):
 
 @app.before_request
 def before_request_handler():
+    """Before request handler"""
     if (auth):
         if (auth.require_auth(request.path, ['/api/v1/status/',
                                              '/api/v1/unauthorized/',

@@ -28,9 +28,11 @@ def stats() -> str:
 
 @app_views.route('/unauthorized/', strict_slashes=False)
 def unauthorized_test() -> None:
+    """Unauthorized test endpoint"""
     abort(401)
 
 
 @app_views.route('/forbidden/', strict_slashes=False)
 def forbidden_test() -> None:
+    """Forbidden test endpoint"""
     abort(403)
