@@ -57,6 +57,7 @@ class BasicAuth(auth.Auth):
         return None if not user[0].is_valid_password(user_pwd) else user[0]
 
     def current_user(self, request=None) -> TypeVar('User'):
+        """Returns current user"""
         auth_header = self.authorization_header(request)
         if (not auth_header):
             return None
