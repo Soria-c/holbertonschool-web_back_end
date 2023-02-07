@@ -2,8 +2,6 @@
 """
 Basic Auth module
 """
-from re import L
-from tkinter.messagebox import NO
 from api.v1.auth import auth
 from models.user import User
 import base64
