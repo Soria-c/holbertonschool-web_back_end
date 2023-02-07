@@ -3,7 +3,6 @@
 Auth module
 """
 
-from tkinter import N
 from typing import List, TypeVar
 from flask import request
 
