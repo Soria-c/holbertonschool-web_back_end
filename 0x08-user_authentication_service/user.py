@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
+"""User table"""
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Integer, Column, String
-"""User table"""
+
 
 Base = declarative_base()
 
