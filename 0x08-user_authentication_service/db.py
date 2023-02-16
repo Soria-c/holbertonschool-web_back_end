@@ -34,8 +34,6 @@ class DB:
         """Creates and saves a new User to db"""
         session = self._session
         user = User(email=email, hashed_password=hashed_password)
-        print(user.email)
-        print(user.hashed_password)
         session.add(user)
         session.commit()
         return user
