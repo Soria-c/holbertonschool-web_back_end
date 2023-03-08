@@ -15,6 +15,6 @@ class Cache:
 
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """Sets a key value pair"""
-        key:str = str(uuid.uuid4())
+        key: str = str(uuid.uuid4())
         self._redis.set(key, data)
         return key
