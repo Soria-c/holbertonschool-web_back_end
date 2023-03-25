@@ -1,0 +1,2 @@
+// Mongo script to delete a document
+db.school.remove({name: "Holberton school"})
