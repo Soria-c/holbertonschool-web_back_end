@@ -7,6 +7,7 @@ if __name__ == "__main__":
         db = client.logs
         collection = db.nginx
         print("{:d} logs".format(collection.count_documents({})))
+        print("Methods:")
         for m in ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']:
             print("\tmethod {:s}: {:d}"
                 .format(m, collection.count_documents({"method": m})))
