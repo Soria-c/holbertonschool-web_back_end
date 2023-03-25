@@ -10,7 +10,7 @@ if __name__ == "__main__":
         print("Methods:")
         for m in ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']:
             print("\tmethod {:s}: {:d}"
-                .format(m, collection.count_documents({"method": m})))
+                  .format(m, collection.count_documents({"method": m})))
         print("{:d} status check"
-            .format(collection
-                    .count_documents({"method": "GET", "path": "/status"})))
+              .format(collection
+                      .count_documents({"method": "GET", "path": "/status"})))
