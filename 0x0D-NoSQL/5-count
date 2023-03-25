@@ -1,0 +1,2 @@
+// Mongo script that count all documents db.school.countDocuments()
+db.school.count()
