@@ -37,5 +37,6 @@ class Server:
 
         rang = index_range(page, page_size)
         data = self.dataset()
+        print(math.ceil(len(data)/100))
         return [] if rang[0] > len(data) - 1 \
             or rang[1] > len(data) - 1 else data[rang[0]:rang[1]]
